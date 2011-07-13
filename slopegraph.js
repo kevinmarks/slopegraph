@@ -20,6 +20,17 @@ $(document).ready(function(){
         left: "-9999em",
         top: "-9999em"
     });
+
+    var seenBoundingBoxes = [];
+    function collides(box) {
+        for (var i = 0, il = seenBoundingBoxes.length; i < il; i++) {
+    		seen = seenBoundingBoxes[i];
+    		if (!(box.x > seen.x + seen.w || box.y > seen.y + seen.h || box.x + box.w < seen.x ||	box.y + box.h < seen.y)) return true; 
+        }
+        seenBoundingBoxes.push(box);
+        return false;
+    }
+	
     // Draw
     var width = 500, // make dynamic
         height = 950, // make dynamic
@@ -39,6 +50,8 @@ $(document).ready(function(){
     			endVal  = data[i] [2],
     			startY  = height-scale*(startVal-min);
     			endY    = height-scale*(endVal-min);
+    		while (collides({x:0,y:startY,w:labelwidth,h:12})) startY++;	
+    		while (collides({x:width-labelwidth,y:endY,w:labelwidth,h:12})) endY++;
     		t = r.text(labelwidth,startY,country).attr(txtL);
     		t = r.text(labelwidth + numberwidth,startY,startVal).attr(txtL);
     		t = r.text(width-labelwidth,endY,country).attr(txtR);

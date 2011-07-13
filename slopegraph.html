@@ -5,7 +5,16 @@
 <script src="raphael.js"></script> 
 <script src="slopegraph.js"></script> </head>
 <body>
-<h1>Current Receipts of Government as a Percentage of Gross Domestic Product, 1970 and 1979</h1>
+<h1>Slope Graph example</h1>
+Charlie Park wrote <a href="http://charliepark.org/slopegraphs/">an essay</a> explaining 
+<a href="http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0003nk&topic_id=1">Edward Tufte's 
+Slope Graph</a> idea. However, as he says, Canvas is not great for doing subtle hairlines.<p>
+Interested in the idea, I hacked this up using the lovely <a href="http://raphaeljs.com">Raphaël library</a> 
+that generates SVG.<p>
+The code is on <a href="https://github.com/kevinmarks/slopegraph" >GitHub as slopegraph</a>
+<p><a href="http://kevinmarks.com" rel="author">Kevin Marks</a>, July 13th 2011
+<h2>A generated example, based on Tufte's data</h2>
+<h3>Current Receipts of Government as a Percentage of Gross Domestic Product, 1970 and 1979</h3>
 <table id="data">
 <thead><tr><td>country<td>1970<td>1979</tr></thead>
 <tbody>
@@ -27,5 +36,8 @@
 </tbody>
 </table>
 <div id="holder"></div>
+<h3>Tufte's original image from print, for comparison</h3>
+<img src="slopegraph.gif" />
+<p>It's pretty clear I need to work on the overlapping text...
 </body>
 </html>
